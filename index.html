@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Pratik Singh Chandel — Front End Web Developer. Building modern, responsive web apps with React, JavaScript &amp; modern CSS.">
+  <title>Pratik Singh Chandel | Front End Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body class="font-body antialiased overflow-x-hidden">
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo group">
+      <span class="logo-mark">P</span>
+      <span
+        class="bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">Pratik</span>
+    </a>
+    <nav class="nav__links" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+        <svg class="theme-icon theme-icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+      </button>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-toggle-mobile" id="themeToggleMobile">
+      <span class="theme-toggle-mobile__label">Switch Light / Dark Theme</span>
+    </button>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__orb hero__orb--3"></div>
+      </div>
+
+      <div class="container hero__content">
+
+        <h1 class="hero__title">
+          Hi, I'm
+          <span
+            class="gradient-text bg-gradient-to-r from-indigo-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">
+            Pratik Singh Chandel
+          </span>
+        </h1>
+
+        <p class="hero__role">
+          Front-End Web Developer building responsive web apps with
+          <span class="text-indigo-300 font-semibold">React</span>,
+          <span class="text-indigo-300 font-semibold">JavaScript</span> &amp;
+          <span class="text-indigo-300 font-semibold">modern CSS</span>
+        </p>
+
+        <p class="hero__tagline">
+          Clean interfaces. Pixel-perfect designs. Continuous learning.
+        </p>
+
+        <div class="hero__socials">
+          <a href="https://github.com/prateeksingh49344" target="_blank" rel="noopener" class="social-icon"
+            title="GitHub" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/pratik-singh-chandel-2b6a422a8?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank" rel="noopener" class="social-icon" title="LinkedIn" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="mailto:prateeksingh49344@gmail.com" class="social-icon" title="Email" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </a>
+        </div>
+        <div class="hero__buttons">
+          <a href="./Pratik_Singh_Chandel_Resume.pdf" target="_blank" class="hero-btn hero-btn--resume">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="12" y1="19" x2="12" y2="5" />
+            </svg>
+            View Resume
+          </a>
+          <a href="https://github.com/prateeksingh49344" target="_blank" rel="noopener"
+            class="hero-btn hero-btn--github">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+            </svg>
+            GitHub
+          </a>
+          <a href="#projects" class="hero-btn hero-btn--linkedin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+            See Projects
+          </a>
+        </div>
+        <a href="#about" class="scroll-hint" aria-label="Scroll to about">
+          <span></span>
+        </a>
+      </div>
+    </section>
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag">01 — About Me</span>
+          <h2 class="section__title">Who I Am</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p class="about__lead">
+              I am a B.Tech Computer Science student with a passion for front-end web development. I enjoy building
+              modern, responsive, and user-friendly web applications while continuously learning new technologies and
+              improving my development skills.
+            </p>
+            <p>
+              I am currently looking for an opportunity as a Front End Web Developer where I can contribute to
+              real-world projects and grow as a software developer.
+            </p>
+          </div>
+          <div class="about__card reveal">
+            <div class="about__card-inner">
+              <div class="about__avatar">P</div>
+              <h3>Pratik Singh Chandel</h3>
+              <p class="about__role">Front-End Web Developer</p>
+              <ul class="about__info">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  India
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  prateeksingh49344@gmail.com
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
+                  B.Tech CSE · 2023–2027
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Education -->
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag">02 — Education</span>
+          <h2 class="section__title">Academic Background</h2>
+        </div>
+        <div class="education__timeline">
+          <div class="education__item reveal">
+            <div class="education__dot"></div>
+            <div class="education__content">
+              <div class="education__meta">
+                <span class="education__duration">2023 – 2027</span>
+                <span class="education__score">Ongoing</span>
+              </div>
+              <h3>B.Tech in Computer Science &amp; Engineering</h3>
+              <p class="education__inst">GL Bajaj Group of Institutions</p>
+              <p class="education__desc">Affiliated to AKTU. Building a strong foundation in Data Structures,
+                Algorithms, Software Engineering, OOPs, and Front-End Web Development.</p>
+            </div>
+          </div>
+          <div class="education__item reveal">
+            <div class="education__dot"></div>
+            <div class="education__content">
+              <div class="education__meta">
+                <span class="education__duration">2023</span>
+              </div>
+              <h3>Class XII (Senior Secondary)</h3>
+              <p class="education__inst">Central Board of Secondary Education (CBSE)</p>
+              <p class="education__desc">Completed senior secondary education with a focus on Science and Mathematics.
+              </p>
+            </div>
+          </div>
+          <div class="education__item reveal">
+            <div class="education__dot"></div>
+            <div class="education__content">
+              <div class="education__meta">
+                <span class="education__duration">2021</span>
+              </div>
+              <h3>Class X (Secondary)</h3>
+              <p class="education__inst">Central Board of Secondary Education (CBSE)</p>
+              <p class="education__desc">Completed secondary schooling with a keen interest in technology and
+                problem-solving.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Skills -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag">03 — Skills</span>
+          <h2 class="section__title">What I Work With</h2>
+        </div>
+        <div class="skills__category-grid">
+          <div class="skills__cat-card reveal">
+            <div class="skills__cat-header">
+              <div class="skills__cat-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3>Programming</h3>
+            </div>
+            <div class="skills__badge-list">
+              <span class="skill-badge">Java</span>
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">SQL</span>
+              <span class="skill-badge">JavaScript</span>
+            </div>
+          </div>
+          <div class="skills__cat-card reveal">
+            <div class="skills__cat-header">
+              <div class="skills__cat-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3>Frontend</h3>
+            </div>
+            <div class="skills__badge-list">
+              <span class="skill-badge">HTML</span>
+              <span class="skill-badge">CSS</span>
+              <span class="skill-badge">React.js</span>
+              <span class="skill-badge">Tailwind</span>
+              <span class="skill-badge">Bootstrap</span>
+            </div>
+          </div>
+          <div class="skills__cat-card reveal">
+            <div class="skills__cat-header">
+              <div class="skills__cat-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                  </path>
+                </svg>
+              </div>
+              <h3>Backend Basics</h3>
+            </div>
+            <div class="skills__badge-list">
+              <span class="skill-badge">Node.js</span>
+              <span class="skill-badge">REST APIs</span>
+              <span class="skill-badge">SQL</span>
+              <span class="skill-badge">Firebase</span>
+            </div>
+          </div>
+          <div class="skills__cat-card reveal">
+            <div class="skills__cat-header">
+              <div class="skills__cat-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3>Tools</h3>
+            </div>
+            <div class="skills__badge-list">
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">GitHub</span>
+              <span class="skill-badge">VS Code</span>
+            </div>
+          </div>
+          <div class="skills__cat-card reveal">
+            <div class="skills__cat-header">
+              <div class="skills__cat-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3>Core Concepts</h3>
+            </div>
+            <div class="skills__badge-list">
+              <span class="skill-badge">Data Structures</span>
+              <span class="skill-badge">Algorithms</span>
+              <span class="skill-badge">OOPs</span>
+              <span class="skill-badge">RDBMS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag">04 — Projects</span>
+          <h2 class="section__title">My Work</h2>
+        </div>
+        <div class="projects__grid">
+          <article class="project-card project-card--featured reveal">
+            <div class="project-card__visual project-card__visual--1">
+              <div class="project-card__mock">
+                <div class="mock-bar"><span></span><span></span><span></span></div>
+                <div class="mock-content mock-product">
+                  <div class="mock-product"></div>
+                  <div class="mock-product"></div>
+                  <div class="mock-product"></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+
+              </div>
+              <h3>E-Commerce Website</h3>
+              <p class="project-card__desc-short">
+                A full-stack e-commerce application with secure authentication, product management, shopping cart, and
+                order management.
+              </p>
+              <div class="project-card__features">
+                <h4 class="features-title">Key Features</h4>
+                <ul class="features-list">
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>User Authentication</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>Product Search &amp; Filter</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>Shopping Cart</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>Order Management</li>
+                  <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>Responsive Design</li>
+                </ul>
+              </div>
+              <div class="project-card__tech">
+                <span class="tech-label">Tech Stack</span>
+                <span class="tech-item">React</span>
+                <span class="tech-item">Node.js</span>
+                <span class="tech-item">Express</span>
+                <span class="tech-item">MongoDB</span>
+                <span class="tech-item">Bootstrap</span>
+              </div>
+              <div class="project-card__links">
+                <a href="./ecommerce/papa.html" class="project-btn project-btn--primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/prateeksingh49344" target="_blank" rel="noopener"
+                  class="project-btn project-btn--outline">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="project-card reveal">
+            <div class="project-card__visual project-card__visual--2">
+              <div class="project-card__mock">
+                <div class="mock-bar"><span></span><span></span><span></span></div>
+                <div class="mock-content mock-content--state">
+                  <div class="mock-counter">MySQL <strong>Backend</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span>Java</span>
+                <span>OOPs</span>
+                <span>MySQL</span>
+                <span>DSA</span>
+              </div>
+              <h3>Library Management System</h3>
+              <p>
+                Console-based application for book issue/return tracking, member registration, and automated fine
+                calculations. Built with OOP principles and connected to MySQL.
+              </p>
+              <div class="project-card__links">
+                <a href="https://github.com/prateeksingh49344" target="_blank" rel="noopener" class="project-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                  </svg>
+                  View Code
+                </a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-card__visual project-card__visual--3">
+              <div class="project-card__mock">
+                <div class="mock-bar"><span></span><span></span><span></span></div>
+                <div class="mock-content mock-content--portfolio">
+                  <div class="mock-hero-line"></div>
+                  <div class="mock-hero-line mock-hero-line--short"></div>
+                  <div class="mock-cards">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__tags">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Tailwind</span>
+              </div>
+              <h3>Interactive Developer Portfolio</h3>
+              <p>
+                A modern, fully responsive personal portfolio showcasing projects, skills, and academic
+                achievements —
+                with glassmorphism, smooth scrolling, and device-ready layouts.
+              </p>
+              <div class="project-card__links">
+                <a href="#hero" class="project-link project-link--active">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                  </svg>
+                  You're here
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact__wrapper reveal">
+          <div class="contact__info">
+            <span class="section__tag">05 — Contact</span>
+            <h2 class="section__title">Let's Work Together</h2>
+            <p>
+
+            </p>
+            <div class="contact__details">
+              <a href="mailto:prateeksingh49344@gmail.com" class="contact__item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>prateeksingh49344@gmail.com</span>
+              </a>
+              <a href="https://wa.me/" target="_blank" rel="noopener" class="contact__item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.198-.35.223-.65.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.491-1.778-1.666-2.077-.175-.3-.018-.463.13-.61.134-.134.301-.349.45-.522.15-.173.197-.298.297-.497.1-.2.05-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.668-.52-.178-.008-.382-.01-.58-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+                  <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2z" />
+                </svg>
+                <span>WhatsApp</span>
+              </a>
+              <a href="https://github.com/prateeksingh49344" target="_blank" rel="noopener" class="contact__item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/pratik-singh-chandel-2b6a422a8?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                target="_blank" rel="noopener" class="contact__item">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+          <form class="contact__form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell me about your project..."
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">
+              Send Message
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; 2026 Pratik Singh Chandel. Built with passion &amp; code.</p>
+      <a href="#hero" class="footer__top" aria-label="Back to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElectroStore | Premium E-Commerce Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="papa.css">
+</head>
+
+<body>
+
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span>🚀 Free Shipping on orders over $50</span>
+      <span class="announcement-divider">|</span>
+      <span>🎉 New Year Sale — Up to 40% OFF!</span>
+      <span class="announcement-divider">|</span>
+      <span>📦 Same Day Delivery in select cities</span>
+    </div>
+  </div>
+
+  <!-- ===== HEADER / NAVIGATION ===== -->
+  <header>
+    <div class="container nav-container">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="#" class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          class="logo-icon">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        ElectroStore
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="desktop-nav" id="desktopNav">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#deals" class="nav-link">Deals</a>
+        <a href="#products" class="nav-link">Shop</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="search-box" id="searchBox">
+        <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off">
+        <button id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme"
+          title="Toggle Light/Dark Mode" onclick="toggleTheme()">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="../index.html" class="back-to-portfolio" title="Back to Portfolio">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <button class="icon-btn wishlist-btn" id="wishlistBtn" aria-label="Wishlist" onclick="toggleWishlistDrawer()">
+          <i class="fas fa-heart"></i>
+          <span class="icon-badge" id="wishlistCount">0</span>
+        </button>
+        <button class="icon-btn" id="loginBtn" aria-label="Account" onclick="openLoginModal()">
+          <i class="fas fa-user"></i>
+        </button>
+        <button class="cart-btn" id="openCartBtn">
+          <i class="fas fa-shopping-bag"></i>
+          Cart <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="#categories" class="nav-link">Categories</a>
+      <a href="#deals" class="nav-link">Deals</a>
+      <a href="#products" class="nav-link">Shop</a>
+      <a href="#testimonials" class="nav-link">Reviews</a>
+      <div class="mobile-search">
+        <input type="text" id="mobileSearchInput" placeholder="Search products...">
+        <button id="mobileSearchBtn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero container" id="home">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide active">
+        <div class="hero-badge">🔥 Mega Sale Live Now</div>
+        <h1>Premium Tech <span class="gradient-text">At Your Fingertips</span></h1>
+        <p>Discover the latest in electronics, wearables, and accessories — curated for those who demand the best. Up to
+          40% off on top brands!</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+          <a href="#deals" class="btn-outline">View Deals</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><strong>10K+</strong> Products</div>
+          <div class="hero-stat"><strong>50K+</strong> Happy Customers</div>
+          <div class="hero-stat"><strong>4.8★</strong> Avg Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED CATEGORIES ===== -->
+  <section class="categories-section container" id="categories">
+    <div class="section-header">
+      <span class="section-badge">Categories</span>
+      <h2>Shop by <span class="gradient-text">Category</span></h2>
+      <p>Explore our wide range of premium product categories</p>
+    </div>
+    <div class="categories-grid" id="categoriesGrid">
+      <!-- Generated dynamically -->
+    </div>
+  </section>
+
+  <!-- ===== DEALS OF THE DAY ===== -->
+  <section class="deals-section" id="deals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Limited Time</span>
+        <h2>Deals of the <span class="gradient-text">Day</span></h2>
+        <p>Hurry! These exclusive deals won't last long</p>
+      </div>
+      <div class="deals-timer">
+        <span>🔥 Offer Ends In:</span>
+        <div class="timer" id="countdownTimer">
+          <div class="timer-block"><span id="timerHours">02</span><small>Hours</small></div>
+          <span class="timer-colon">:</span>
+          <div class="timer-block"><span id="timerMinutes">45</span><small>Mins</small></div>
+          <span class="timer-colon">:</span>
+          <div class="timer-block"><span id="timerSeconds">30</span><small>Secs</small></div>
+        </div>
+      </div>
+      <div class="deals-grid" id="dealsGrid">
+        <!-- Generated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FILTERS & PRODUCTS ===== -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Our Collection</span>
+        <h2>Featured <span class="gradient-text">Products</span></h2>
+        <p>Hand-picked premium products just for you</p>
+      </div>
+
+      <!-- Product Toolbar -->
+      <div class="product-toolbar">
+        <div class="filters">
+          <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+          <button class="filter-btn" onclick="filterCategory('electronics', this)">📱 Electronics</button>
+          <button class="filter-btn" onclick="filterCategory('accessories', this)">🎒 Accessories</button>
+          <button class="filter-btn" onclick="filterCategory('wearables', this)">⌚ Wearables</button>
+          <button class="filter-btn" onclick="filterCategory('gaming', this)">🎮 Gaming</button>
+          <button class="filter-btn" onclick="filterCategory('home', this)">🏠 Home</button>
+          <button class="filter-btn" onclick="filterCategory('phones', this)">📞 Phones</button>
+        </div>
+        <div class="sort-options">
+          <label for="sortSelect">Sort:</label>
+          <select id="sortSelect" onchange="sortProducts()">
+            <option value="default">Default</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="name">Name A-Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Products generated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials-section container" id="testimonials">
+    <div class="section-header">
+      <span class="section-badge">Testimonials</span>
+      <h2>What Our <span class="gradient-text">Customers</span> Say</h2>
+      <p>Join 50,000+ satisfied customers worldwide</p>
+    </div>
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <!-- Generated dynamically -->
+    </div>
+  </section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container newsletter-container">
+      <div class="newsletter-content">
+        <h2>Stay <span class="gradient-text">Connected</span></h2>
+        <p>Subscribe to get exclusive deals, new arrivals, and insider-only offers!</p>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+        </form>
+        <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo" style="margin-bottom:1rem;display:inline-flex;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          ElectroStore
+        </a>
+        <p class="footer-desc">Your premium destination for the latest tech, gadgets, and accessories. Quality
+          guaranteed.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#">Home</a>
+        <a href="#products">Shop All</a>
+        <a href="#deals">Today's Deals</a>
+        <a href="#categories">Categories</a>
+        <a href="#testimonials">Reviews</a>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Returns & Exchanges</a>
+        <a href="#">Shipping Info</a>
+        <a href="#">Track Order</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Payment Methods</h4>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-amex"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fab fa-google-pay"></i>
+          <i class="fab fa-apple-pay"></i>
+        </div>
+        <p style="margin-top:1rem;color:var(--text-muted);font-size:0.85rem;">Secure checkout with SSL encryption 🔒</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 ElectroStore. Built with ❤️ for Pratik's Portfolio. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- ===== DRAWERS / SIDEBARS / MODALS ===== -->
+  <!-- ========================================================= -->
+
+  <!-- WISHLIST DRAWER -->
+  <div class="cart-drawer wishlist-drawer" id="wishlistDrawer">
+    <div class="cart-header">
+      <h2>❤️ Your Wishlist</h2>
+      <button class="close-cart" onclick="toggleWishlistDrawer()">&times;</button>
+    </div>
+    <div class="cart-items" id="wishlistItemsContainer">
+      <div class="empty-cart-msg">Your wishlist is empty</div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h2>🛒 Your Cart</h2>
+      <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+      <div class="empty-cart-msg" id="emptyCartMsg">Your cart is empty</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotalVal">$0.00</span>
+      </div>
+      <div class="cart-promo">
+        <span id="freeShippingMsg">Add $50.00 more for free shipping 🚚</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn" disabled onclick="openCheckoutModal()">
+        <i class="fas fa-lock"></i> Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal product-modal" style="max-width: 700px;">
+      <button class="modal-x" onclick="closeProductModal()">&times;</button>
+      <div class="product-detail-content" id="productDetailContent">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGIN / SIGNUP MODAL -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal" style="max-width: 420px;">
+      <button class="modal-x" onclick="closeLoginModal()">&times;</button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchAuthTab('login', this)">Sign In</button>
+        <button class="auth-tab" onclick="switchAuthTab('signup', this)">Create Account</button>
+      </div>
+      <div id="loginForm">
+        <h3 style="margin-bottom:0.5rem;">Welcome Back! 👋</h3>
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Sign in to access your account</p>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Sign In <i
+              class="fas fa-arrow-right"></i></button>
+        </form>
+        <p class="auth-switch" onclick="switchAuthTab('signup', document.querySelectorAll('.auth-tab')[1])">Don't have
+          an account? Sign up</p>
+      </div>
+      <div id="signupForm" style="display:none;">
+        <h3 style="margin-bottom:0.5rem;">Create Account 🚀</h3>
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;">Join 50K+ happy customers</p>
+        <form onsubmit="handleSignup(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Create Account <i
+              class="fas fa-rocket"></i></button>
+        </form>
+        <p class="auth-switch" onclick="switchAuthTab('login', document.querySelectorAll('.auth-tab')[0])">Already have
+          an account? Sign in</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal" style="max-width: 600px; text-align:left;">
+      <button class="modal-x" onclick="closeCheckoutModal()">&times;</button>
+      <h3 style="font-family:'Syne',sans-serif;margin-bottom:1.5rem;">📦 Checkout</h3>
+      <form id="checkoutForm" onsubmit="placeOrder(event)">
+        <div class="checkout-grid">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group" style="grid-column: span 2;">
+            <label>Address</label>
+            <input type="text" placeholder="123 Main Street, City" required>
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" placeholder="New York" required>
+          </div>
+          <div class="form-group">
+            <label>ZIP Code</label>
+            <input type="text" placeholder="10001" required>
+          </div>
+          <div class="form-group" style="grid-column: span 2;">
+            <label>Payment Method</label>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card" checked>
+                <i class="fas fa-credit-card"></i> Credit Card
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="paypal">
+                <i class="fab fa-paypal"></i> PayPal
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cod">
+                <i class="fas fa-money-bill-wave"></i> COD
+              </label>
+            </div>
+          </div>
+          <div class="checkout-summary" style="grid-column: span 2;">
+            <div style="display:flex;justify-content:space-between;color:var(--text-muted);">
+              <span>Subtotal</span>
+              <span id="checkoutSubtotal">$0.00</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:var(--text-muted);">
+              <span>Shipping</span>
+              <span id="checkoutShipping">$5.99</span>
+            </div>
+            <hr style="border-color:var(--border);margin:0.5rem 0;">
+            <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;">
+              <span>Total</span>
+              <span id="checkoutTotal">$0.00</span>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:1rem;">
+          <i class="fas fa-lock"></i> Place Order — <span id="checkoutBtnTotal">$0.00</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal" style="max-width:450px;">
+      <div class="modal-icon">🎉</div>
+      <h3>Order Placed Successfully!</h3>
+      <p>Thank you for your purchase! Your order has been confirmed and will be shipped within 24 hours.</p>
+      <div class="order-confetti">✨📦✨</div>
+      <button class="btn-primary" onclick="closeSuccessModal()" style="margin-top:0.5rem;">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ========================================================= -->
+  <!-- ===== JAVASCRIPT (external files) ===== -->
+  <!-- ========================================================= -->
+  <script src="api.js"></script>
+  <script src="papa.js"></script>
+</body>
+
+</html>
