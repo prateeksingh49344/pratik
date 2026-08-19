@@ -21,9 +21,18 @@
     <div class="container announcement-content">
       <span>🚀 Free Shipping on orders over $50</span>
       <span class="announcement-divider">|</span>
-      <span>🎉 New Year Sale — Up to 40% OFF!</span>
+      <span>🎟️ Code: <strong style="color:var(--primary-light,#818cf8);">ELECTRO10</strong> (10% OFF) or <strong
+          style="color:var(--primary-light,#818cf8);">PRATIK50</strong></span>
       <span class="announcement-divider">|</span>
-      <span>📦 Same Day Delivery in select cities</span>
+      <div class="currency-selector">
+        <label for="currencySelect" style="font-size:0.8rem;opacity:0.85;margin-right:4px;">Currency:</label>
+        <select id="currencySelect" onchange="changeCurrency(this.value)"
+          style="background:rgba(255,255,255,0.15);color:#fff;border:none;border-radius:4px;padding:2px 6px;font-size:0.8rem;cursor:pointer;">
+          <option value="USD">USD ($)</option>
+          <option value="INR">INR (₹)</option>
+          <option value="EUR">EUR (€)</option>
+        </select>
+      </div>
     </div>
   </div>
 
@@ -64,9 +73,15 @@
           title="Toggle Light/Dark Mode" onclick="toggleTheme()">
           <i class="fas fa-moon"></i>
         </button>
-        <a href="../index.html" class="back-to-portfolio" title="Back to Portfolio">
-          <i class="fas fa-arrow-left"></i>
-        </a>
+        <button class="icon-btn track-btn" id="trackOrderNavBtn" aria-label="Track Order" title="Track Order Status"
+          onclick="openTrackOrderModal()">
+          <i class="fas fa-truck-fast"></i>
+        </button>
+        <button class="icon-btn compare-btn" id="compareBtn" aria-label="Compare Products" title="Compare Products"
+          onclick="toggleCompareDrawer()">
+          <i class="fas fa-columns"></i>
+          <span class="icon-badge" id="compareCount">0</span>
+        </button>
         <button class="icon-btn wishlist-btn" id="wishlistBtn" aria-label="Wishlist" onclick="toggleWishlistDrawer()">
           <i class="fas fa-heart"></i>
           <span class="icon-badge" id="wishlistCount">0</span>
@@ -74,6 +89,9 @@
         <button class="icon-btn" id="loginBtn" aria-label="Account" onclick="openLoginModal()">
           <i class="fas fa-user"></i>
         </button>
+        <a href="../index.html" class="back-to-portfolio" title="Back to Portfolio">
+          <i class="fas fa-arrow-left"></i>
+        </a>
         <button class="cart-btn" id="openCartBtn">
           <i class="fas fa-shopping-bag"></i>
           Cart <span class="cart-count" id="cartCount">0</span>
@@ -172,21 +190,62 @@
           <button class="filter-btn" onclick="filterCategory('home', this)">🏠 Home</button>
           <button class="filter-btn" onclick="filterCategory('phones', this)">📞 Phones</button>
         </div>
-        <div class="sort-options">
-          <label for="sortSelect">Sort:</label>
-          <select id="sortSelect" onchange="sortProducts()">
-            <option value="default">Default</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
-            <option value="rating">Top Rated</option>
-            <option value="name">Name A-Z</option>
-          </select>
+
+        <div class="advanced-filters">
+          <div class="filter-group price-slider-group">
+            <label for="priceRangeInput">Max Price: <span id="priceRangeVal" class="gradient-text">$2,000</span></label>
+            <input type="range" id="priceRangeInput" min="0" max="2000" step="10" value="2000"
+              oninput="handlePriceSlider(this.value)">
+          </div>
+
+          <div class="filter-group">
+            <label class="toggle-switch">
+              <input type="checkbox" id="inStockOnly" onchange="refreshProducts()">
+              <span class="slider round"></span>
+              <span class="toggle-text">In Stock Only</span>
+            </label>
+          </div>
+
+          <div class="filter-group">
+            <select id="ratingFilter" onchange="refreshProducts()" class="filter-select">
+              <option value="0">All Ratings ★</option>
+              <option value="4.5">4.5+ ★ Only</option>
+              <option value="4.8">4.8+ ★ Only</option>
+            </select>
+          </div>
+
+          <div class="sort-options">
+            <label for="sortSelect">Sort:</label>
+            <select id="sortSelect" onchange="sortProducts()">
+              <option value="default">Default</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+              <option value="name">Name A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-status-bar">
+          <span class="product-counter" id="productCounter">Showing products...</span>
         </div>
       </div>
 
       <div class="products-grid" id="productsGrid">
         <!-- Products generated dynamically -->
       </div>
+    </div>
+  </section>
+
+  <!-- ===== RECENTLY VIEWED PRODUCTS ===== -->
+  <section class="recently-viewed-section container" id="recentlyViewedSection" style="display:none; margin-top: 3rem;">
+    <div class="section-header">
+      <span class="section-badge">History</span>
+      <h2>Recently <span class="gradient-text">Viewed</span></h2>
+      <p>Items you checked out recently</p>
+    </div>
+    <div class="products-grid" id="recentlyViewedGrid">
+      <!-- Generated dynamically -->
     </div>
   </section>
 
@@ -299,11 +358,43 @@
       <div class="empty-cart-msg" id="emptyCartMsg">Your cart is empty</div>
     </div>
     <div class="cart-footer">
+      <div class="cart-promo-input-group" style="display:flex;gap:6px;margin-bottom:0.8rem;">
+        <input type="text" id="cartPromoInput" placeholder="Promo code (e.g. ELECTRO10)"
+          style="flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:6px;background:var(--bg-input,rgba(255,255,255,0.05));color:var(--text);font-size:0.85rem;text-transform:uppercase;">
+        <button type="button" onclick="handleApplyPromo()" class="btn-outline"
+          style="padding:8px 14px;font-size:0.85rem;">Apply</button>
+      </div>
+
+      <div id="cartPromoTag"
+        style="display:none;background:rgba(16,185,129,0.12);color:#10b981;border:1px solid rgba(16,185,129,0.3);padding:6px 10px;border-radius:6px;font-size:0.8rem;font-weight:600;margin-bottom:0.8rem;display:flex;justify-content:space-between;align-items:center;">
+        <span id="cartPromoTagText">🎟️ ELECTRO10 applied</span>
+        <button onclick="removePromoCode()"
+          style="background:none;border:none;color:#10b981;cursor:pointer;font-weight:bold;">&times;</button>
+      </div>
+
+      <div class="cart-subtotal"
+        style="display:flex;justify-content:space-between;color:var(--text-muted);font-size:0.9rem;margin-bottom:0.3rem;">
+        <span>Subtotal:</span>
+        <span id="cartSubtotalVal">$0.00</span>
+      </div>
+
+      <div class="cart-discount" id="cartDiscountRow"
+        style="display:none;justify-content:space-between;color:#10b981;font-weight:600;font-size:0.9rem;margin-bottom:0.3rem;">
+        <span id="cartDiscountLabel">Discount:</span>
+        <span id="cartDiscountVal">-$0.00</span>
+      </div>
+
       <div class="cart-total">
         <span>Total:</span>
         <span id="cartTotalVal">$0.00</span>
       </div>
-      <div class="cart-promo">
+
+      <div class="cart-points"
+        style="font-size:0.82rem;color:var(--primary);font-weight:600;margin-top:0.4rem;display:flex;align-items:center;gap:4px;">
+        🎁 You'll earn <span id="cartPointsVal">0</span> ElectroPoints!
+      </div>
+
+      <div class="cart-promo" style="margin-top:0.4rem;">
         <span id="freeShippingMsg">Add $50.00 more for free shipping 🚚</span>
       </div>
       <button class="checkout-btn" id="checkoutBtn" disabled onclick="openCheckoutModal()">
@@ -448,6 +539,69 @@
       <p>Thank you for your purchase! Your order has been confirmed and will be shipped within 24 hours.</p>
       <div class="order-confetti">✨📦✨</div>
       <button class="btn-primary" onclick="closeSuccessModal()" style="margin-top:0.5rem;">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- PRODUCT COMPARISON DRAWER -->
+  <div class="cart-drawer compare-drawer" id="compareDrawer" style="width: min(92vw, 650px);">
+    <div class="cart-header">
+      <h2>⚖️ Compare Products (<span id="compareItemCount">0</span>/3)</h2>
+      <button class="close-cart" onclick="toggleCompareDrawer()">&times;</button>
+    </div>
+    <div class="cart-items" id="compareItemsContainer" style="padding:1rem;">
+      <div class="empty-cart-msg">Select up to 3 products to compare features & prices</div>
+    </div>
+    <div class="cart-footer" style="display:flex;justify-content:flex-end;">
+      <button class="btn-outline" onclick="clearCompareList()" style="font-size:0.85rem;">Clear Comparison</button>
+    </div>
+  </div>
+
+  <!-- TRACK ORDER MODAL -->
+  <div class="modal-overlay" id="trackOrderModal">
+    <div class="modal" style="max-width: 520px; text-align:left;">
+      <button class="modal-x" onclick="closeTrackOrderModal()">&times;</button>
+      <h3 style="font-family:'Syne',sans-serif;margin-bottom:0.5rem;">🚚 Track Your Order</h3>
+      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.2rem;">Enter your order ID (e.g., ORD-982314)
+        or view recent order</p>
+
+      <div style="display:flex;gap:8px;margin-bottom:1.5rem;">
+        <input type="text" id="trackOrderIdInput" placeholder="Order ID (e.g. ORD-123456)"
+          style="flex:1;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg-input,rgba(255,255,255,0.05));color:var(--text);font-size:0.95rem;text-transform:uppercase;">
+        <button class="btn-primary" onclick="lookupOrderTrack()">Track <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div id="trackingStatusDisplay"
+        style="display:none;background:var(--bg-card,rgba(255,255,255,0.03));border:1px solid var(--border);border-radius:12px;padding:1.2rem;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:1rem;">
+          <strong id="trackOrderNumber">ORD-000000</strong>
+          <span class="product-badge" style="background:#10b981;color:#fff;" id="trackStatusBadge">On The Way</span>
+        </div>
+
+        <div class="tracking-stepper"
+          style="display:flex;justify-content:space-between;position:relative;margin:1.5rem 0;">
+          <div class="track-step active" id="step1">
+            <div class="step-icon"><i class="fas fa-check"></i></div>
+            <small>Placed</small>
+          </div>
+          <div class="track-step active" id="step2">
+            <div class="step-icon"><i class="fas fa-box"></i></div>
+            <small>Packed</small>
+          </div>
+          <div class="track-step active" id="step3">
+            <div class="step-icon"><i class="fas fa-truck"></i></div>
+            <small>Shipped</small>
+          </div>
+          <div class="track-step" id="step4">
+            <div class="step-icon"><i class="fas fa-house-chimney"></i></div>
+            <small>Delivered</small>
+          </div>
+        </div>
+
+        <div
+          style="font-size:0.85rem;color:var(--text-muted);border-top:1px solid var(--border);padding-top:0.8rem;margin-top:0.8rem;">
+          Estimated Delivery: <strong style="color:var(--text);" id="trackEstDate">Tomorrow by 5:00 PM</strong>
+        </div>
+      </div>
     </div>
   </div>
 
