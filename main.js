@@ -77,7 +77,6 @@
     });
   }
 
-
   // --- Hero typing (Frontend Developer style) ---
   const typeWrap = document.querySelector('.typewrap');
   if (typeWrap) {
